@@ -1,0 +1,138 @@
+login:
+    path: /
+    controller: App\Controller\UserController::login
+
+create-user:
+    path: /create-user
+    controller: App\Controller\UserController::createUser
+    methods: POST
+
+edit-user:
+    path: admin/edit/user
+    controller: App\Controller\UserController::editUser
+
+logout:
+    path: /logout
+
+posts:
+   path: admin/post/{page}
+   controller: App\Controller\PostController::getPosts
+   defaults:
+    page: 1
+
+comments:
+   path: admin/comment/{page}
+   controller: App\Controller\CommentController::getComments
+   defaults:
+    page: 1
+
+active-comment:
+  path: admin/active/comment/{id}
+  controller: App\Controller\CommentController::activeComment
+
+sites:
+   path: admin/site/{page}
+   controller: App\Controller\SiteController::getSites
+   defaults:
+    page: 1
+
+new-site:
+   path: admin/create/site
+   controller: App\Controller\SiteController::createSite
+
+
+update-site:
+   path: admin/update/site/{id}
+   controller: App\Controller\SiteController::createSite
+
+active-site:
+  path: admin/active/site/{id}
+  controller: App\Controller\SiteController::activeSite
+
+new-post:
+   path: admin/create/post
+   controller: App\Controller\PostController::createPost
+
+update-post:
+   path: admin/update/post/{id}
+   controller: App\Controller\PostController::createPost
+
+delete-post:
+   path: admin/delete/post/{id}
+   controller: App\Controller\PostController::deletePost
+
+active-post:
+  path: admin/active/post/{id}
+  controller: App\Controller\PostController::activePost
+
+upload-post-image:
+   path: admin/upload/post-image/{slug}
+   controller: App\Controller\PostController::imageUpload
+
+categories:
+   path: admin/categories/{page}/{message?}
+   controller: App\Controller\CategoryController::getCategories
+   defaults:
+    page: 1
+
+new-category:
+   path: admin/create/category
+   controller: App\Controller\CategoryController::createCategory
+   methods: POST
+
+update-category:
+   path: admin/update/category/{slug?}
+   controller: App\Controller\CategoryController::updateCategory
+
+active-category:
+  path: admin/active/category/{id}
+  controller: App\Controller\CategoryController::activeCategory
+
+
+docs:
+  path: admin/docs
+  controller: App\Controller\DocsController::index
+
+
+# Rutas relativas a la API
+
+api-get-site:
+    path: /API/{apikey?}
+    controller: App\Controller\ApiController::getSiteData
+
+api-get-site-categories:
+    path: /API/{apikey?}/categories
+    controller: App\Controller\ApiController::getSiteCategories
+
+api-get-posts:
+    path: /API/{apikey?}/posts
+    controller: App\Controller\ApiController::getPosts
+
+api-get-lasts-posts:
+    path: /API/{apikey?}/lasts-posts/{quantity}
+    controller: App\Controller\ApiController::getLastsPosts
+    defaults:
+        quantity: 1
+
+api-get-posts-by-category:
+    path: /API/{apikey?}/posts/{categorySlug}
+    controller: App\Controller\ApiController::getPostsByCategory
+
+api-get-post-by-slug:
+    path: /API/{apikey?}/post/{postSlug}
+    controller: App\Controller\ApiController::getPostBySlug
+
+api-get-category-by-slug:
+    path: /API/{apikey?}/category/{categorySlug}
+    controller: App\Controller\ApiController::getCategoryBySlug
+
+api-get-comment:
+    path: /API/{apikey?}/comments/{postSlug}
+    controller: App\Controller\ApiController::getCommnetsByPostSlug
+
+api-create-comment:
+    path: /API/{apikey?}/create/comment
+    controller: App\Controller\ApiController::createComment
+    methods: [POST]
+
+# FIN Rutas relativas a la API

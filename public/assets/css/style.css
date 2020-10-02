@@ -1,0 +1,146 @@
+/* #### PERSONALIZACIÓN DE LAS TIPOGRAFÍAS ####*/
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap');
+
+p, span{
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-logo{
+  font-family: 'Anton', sans-serif;
+}
+
+nav .active{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+/* #### FIN PERSONALIZACIÓN DE LAS TIPOGRAFÍAS ####*/
+
+
+/* Modificamos el tamaño de la tipografía del titulo */
+.title-block h1{
+	font-size: 20px;
+}
+
+
+/* Establecemos algunas clases genéricas para añadir margenes y paddings */
+.p-2{
+  padding: 20px !important;
+}
+
+.pt-2{
+	padding-top: 20px !important;
+}
+
+.mb-2{
+  margin-bottom: 20px !important;
+}
+
+.ml-2{
+  margin-left: 20px !important;
+}
+
+.mx-2{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.mx-auto{
+  margin: 0 auto; 
+}
+
+.pb-2{
+  padding-bottom: 20px !important;
+}
+
+.clearfix{
+  float: none;
+  clear: both;
+}
+
+/* Añadimos una clase para poner letras en negrita */
+.bold{
+  font-weight: bold;
+}
+
+/* Establecemos los estilos del fondo utilizado en el menú principal*/
+#main-menu{
+  background-image: url('img/bg/floating-cogs.svg');
+  background-repeat: repeat;
+  background-size: 180px;
+  background-position: center;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+/* #### ESTILOS EDITOR ####*/
+.posteditor .toolbar {
+  text-align:left;
+  margin-bottom: 10px;
+}
+
+.posteditor #editor {
+  color: #3e3e3e;
+  background-color: #f9f9f9;
+  resize:vertical;
+  overflow:auto;
+  border-bottom: 2px solid #5e5e5e;
+  min-height:400px;
+  padding:5px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  transition-duration: 800ms;
+}
+
+.posteditor #editor:focus{
+  border-bottom: 2px solid #009688;
+}
+.posteditor .input-form{
+  color: #3e3e3e;
+  width: 100%;
+  padding: 7px;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  border:none;
+  border-radius: 5px;
+}
+
+.posteditor a:link {text-decoration:none;}
+.posteditor a:visited {text-decoration:none;}
+.posteditor a:hover {text-decoration:none;}
+.posteditor a:active {text-decoration:none;}
+.posteditor a{
+  color:#3e3e3e;
+  padding:5px 10px;
+  margin:0 2px ;
+  border-radius:5px;
+  width:1em;
+}
+
+/* #### FIN ESTILOS EDITOR ####*/
+
+
+
+
+/* #### PERSONALIZACIÓN DE LAS TABS DE MATERIALIZE CSS ####*/
+.tabs .tab a {
+  color: rgba(38, 166, 154, 0.7);
+}
+
+.tabs .tab a:hover {
+  color:#26a69a;
+}
+
+.tabs .tab a:focus.active {
+  color:#26a69a;
+  background-color: rgba(38, 166, 154, 0.2);
+}
+
+.tabs .indicator {
+  background-color:#26a69a;
+}
+/* #### FIN PERSONALIZACIÓN DE LAS TABS DE MATERIALIZE CSS ####*/

@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administrar Posts{% endblock %}
+
+{% block body %}
+
+<div class="container pt-2">
+    <h1>{{title}}</h1>
+</div>
+
+<div class="container pt-2">
+    
+    <div class="posteditor"> <!-- Inicio Editor -->
+  
+  <div class="toolbar"> <!-- INICIO Barra Herramientas del editor -->
+  
+    <a href="#" data-command='undo'><i class='fa fa-undo'></i></a>
+    <a href="#" data-command='redo'><i class='fa fa-repeat'></i></a>
+    
+    <a href="#" data-command='bold'><i class='fa fa-bold'></i></a>
+    <a href="#" data-command='italic'><i class='fa fa-italic'></i></a>
+    <a href="#" data-command='underline'><i class='fa fa-underline'></i></a>
+    <a href="#" data-command='strikeThrough'><i class='fa fa-strikethrough'></i></a>
+    
+    <a href="#" data-command='justifyLeft'><i class='fa fa-align-left'></i></a>
+    <a href="#" data-command='justifyCenter'><i class='fa fa-align-center'></i></a>
+    <a href="#" data-command='justifyRight'><i class='fa fa-align-right'></i></a>
+    <a href="#" data-command='justifyFull'><i class='fa fa-align-justify'></i></a>
+    
+    <a href="#" data-command='indent'><i class='fa fa-indent'></i></a>
+    <a href="#" data-command='outdent'><i class='fa fa-outdent'></i></a>
+    
+    <a href="#" data-command='insertUnorderedList'><i class='fa fa-list-ul'></i></a>
+    <a href="#" data-command='insertOrderedList'><i class='fa fa-list-ol'></i></a>
+    
+    <a href="#" data-command='h2'>H2</a>
+    <a href="#" data-command='h3'>H3</a>
+    <a href="#" data-command='h3'>H4</a>
+    
+    <a href="#" data-command='createlink'><i class='fa fa-link'></i></a>
+    <a href="#" data-command='unlink'><i class='fa fa-unlink'></i></a>
+    <a href="#" data-command='insertimage'><i class='fa fa-image'></i></a>
+
+    <a href="#" data-command='subscript'><i class='fa fa-subscript'></i></a>
+    <a href="#" data-command='superscript'><i class='fa fa-superscript'></i></a>
+  
+  </div> <!-- FIN Barra Herramientas -->
+ 
+    <form action="" method="POST" >
+      
+      <!-- Paso la id del post para localizarlo -->
+      <input type="hidden" name="id"value="">
+
+      <!-- Titulo y slug del POST -->
+      <input type="text" name="title" class="input-form" placeholder="Title" maxlength="255" value="{{post.title}}" required>
+      
+      {% if slug_exist is defined %}
+        <small class="red-text">{{slug_exist}}</small>
+      {% endif %}
+
+      <input type="text" name="slug" class="input-form" maxlength="120" placeholder="Slug" value="{{post.slug}}" required>
+
+
+
+    <div class="clearfix"></div>
+
+      <!-- Categoría y Site al que pertenece el POST -->
+
+      <label>Category:</label>
+      <select id="category" name="category" style="margin-bottom:10px;" class="browser-default" required>
+              {% for category in categories %}
+
+                {% if action == 'update' %}
+
+
+                  {% if category.id is same as (post.category.id) %}
+                    <option value="{{category.id}}" selected>{{category.name}} - {{category.site.name}}</option>
+                  {% else %}
+                    <option value="{{category.id}}">{{category.name}} - {{category.site.name}}</option>
+                  {% endif %}
+                {% else %}
+                  <option value="{{category.id}}">{{category.name}} - {{category.site.name}}</option>
+                {% endif %}
+              {% endfor %}
+      </select>        
+      <!-- DIV donde el usuario escribe -->
+      <label>Post content:</label>
+      <div id='editor' class="" contenteditable >{{post.content|raw}}</div>
+      
+      <!-- input oculto en el que se guarda el texto del usuario formateado en html -->
+      <input type="hidden" name="content" id='output' value="{{post.content}}"></input>
+
+
+      <div class="clearfix"></div> <!-- CLEARFIX Para evitar que el siguiente label flote -->
+      
+      <!-- Meta titulo y meta descripción del articulo -->
+
+      <label class="text-light" for="meta-title">Title and description for SEO:</label>
+      <input type="text" name="meta-title" class="input-form" placeholder="Meta-title" maxlength="60" value="{{post.metaTitle}}" required>
+      <input type="text" name="meta-description" class="input-form" placeholder="Meta-description" maxlength="120" value="{{post.metaDescription}}" required>
+      
+      <button type="submit" class="btn  right">
+          {{action}}
+      </button>
+    </form> <!-- FIN Formulario -->
+
+</div> <!-- FIN Editor -->
+
+</div>
+
+
+<script src="{{asset('assets/js/post-editor.js')}}"></script>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="row">
+		
+		<p>Here we will teach you how to use the php library to consume the API of the application. It will be a few steps and in a few minutes you will be working with it.</p>
+
+		<h5 class="teal-text bold">getSiteData()</h5>
+
+		<p>Return an array with the requested information: id, name, meta title, meta description, email and Google Analytics ID.</p>
+
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/get-site-data.jpg')}}">
+
+		<h5 class="teal-text bold">getCategories()</h5>
+
+		<p>Returns an array with all the categories that the site has. Within each of the categories we find an array with the data referring to them: id, name, meta title, meta description and slug.</p>
+
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/get-categories.jpg')}}">
+
+		<h5 class="teal-text bold">getCategoryBySlug($slug)</h5>
+
+		<p>Returns an array with the data of a category based on its slug. The data it returns are: id, name, meta title, meta description and slug.</p>
+
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/get-categories-slug.jpg')}}">
+
+		<h5 class="teal-text bold">getLastPosts($quantity = 1)</h5>
+
+		<p>Returns an array with x posts where x is the quantity value. If no parameter is added return the last post. The data returned from each post are: id, title, content, category, slug, image.</p>
+
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/get-last-post.jpg')}}">
+
+		<h5 class="teal-text bold">getPostsByCategory($slug)</h5>
+
+		<p>Returns an array with the posts belonging to a specific category, in the slug parameter you must add the slug of the category you want to obtain. The data returned from each post are: id, title, content, category, slug, image.</p>
+
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/get-post-categories.jpg')}}">
+
+		<h5 class="teal-text bold">Get Post By Slug</h5>
+
+		<p>Returns an array with the data of a post based on its slug. The data returned from each post are: id, title, content, category, slug, image..</p>
+
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/get-post-slug.jpg')}}">
+
+
+
+	</div>
+</div>

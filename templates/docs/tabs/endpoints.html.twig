@@ -1,0 +1,69 @@
+<div class="container">
+	<div class="row">
+		<p>We'll show you all the endpoints of the API so you can implement it in your own developments. With this you will be able to generate websites and give service to mobile apps. You'll need a site apikey and a base url, if you don't know what are we talking about, please take a look to <span class="bold teal-text">get started</span> docs. Requests are always built as follows: <span class="bold teal-text">yourdomain.com/API/apikey/endpoint.</span></p><p>All requests to the API will return the information in JSON format, this guarantees the highest possible compatibility with the different technological stacks you may use.</p>
+
+		<h5 class="teal-text bold">Bad Request</h5>
+
+		<p>In case the request is wrong, we will get an error 400, bad request.This is usually because the apikey is wrong or does not exist.</p>
+
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/bad-request.jpg')}}">
+
+
+		<h5 class="teal-text bold">Get Site Data</h5>
+
+		<p>Return a JSON Object with the requested information: id, name, meta title, meta description, email and Google Analytics ID.</p>
+		<p style="text-align:center;"><span class="bold teal-text">Endpoint:</span> yourdomain.com/API/apikey</p>
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/api-get-site.jpg')}}">
+
+
+		<h5 class="teal-text bold">Get Categories</h5>
+
+		<p>Return a JSON Object with all the categories that the site has. Within each of the categories we find a json with the data referring to them: id, name, meta title, meta description and slug.</p>
+		<p style="text-align:center;"><span class="bold teal-text">Endpoint:</span> yourdomain.com/API/apikey/categories</p>
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/api-get-categories.jpg')}}">
+
+
+		<h5 class="teal-text bold">Get Category by Slug</h5>
+
+		<p>Returns a JSON with the data of a category based on its slug. The data it returns are: id, name, meta title, meta description and slug.</p>
+		<p style="text-align:center;"><span class="bold teal-text">Endpoint:</span> yourdomain.com/API/apikey/category/slug</p>
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/api-get-category-slug.jpg')}}">
+
+
+		<h5 class="teal-text bold">Get Posts</h5>
+
+		<p>Return a JSON Object with all the site's posts. Within each of the posts we find a json with the data referring to them: id, title, content, category, slug, image.</p>
+		<p style="text-align:center;"><span class="bold teal-text">Endpoint:</span> yourdomain.com/API/apikey/posts</p>
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/api-get-posts.jpg')}}">
+
+
+		<h5 class="teal-text bold">Get Lasts Posts</h5>
+
+		<p>Return a JSON Object with x posts where x is the quantity value. If no parameter is added return the last one post. The data returned from each post are: id, title, content, category, slug, image.</p>
+		<p style="text-align:center;"><span class="bold teal-text">Endpoint:</span> yourdomain.com/API/apikey/lasts-posts/x</p>
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/api-get-lasts-posts.jpg')}}">
+
+
+		<h5 class="teal-text bold">Get Posts By Category</h5>
+
+		<p>Return a JSON Object the posts belonging to a specific category, in the slug parameter you must add the slug of the category you want to obtain. The data returned from each post are: id, title, content, category, slug, image.</p>
+		<p style="text-align:center;"><span class="bold teal-text">Endpoint:</span> yourdomain.com/API/apikey/posts/category-slug</p>
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/api-get-posts-categories.jpg')}}">
+
+
+		<h5 class="teal-text bold">Get Posts By Slug</h5>
+
+		<p>Return a JSON Object the data of a post based on its slug. The data returned from each post are: id, title, content, category, slug, image.</p>
+		<p style="text-align:center;"><span class="bold teal-text">Endpoint:</span> yourdomain.com/API/apikey/post/post-slug</p>
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/api-get-posts-slug.jpg')}}">
+
+
+		<h5 class="teal-text bold">Get Comments By Post Slug</h5>
+
+		<p>Return a JSON Object the comments belonging to a specific post, in the slug parameter you must add the slug of the post you want to obtain. The data returned from each comment are: id, content, email, name, post_id, active and create date.</p>
+		<p style="text-align:center;"><span class="bold teal-text">Endpoint:</span> yourdomain.com/API/apikey/comments/post-slug</p>
+	    <img class="materialboxed mx-auto" width="60%" src="{{asset('assets/img/docs/api-doc/api-get-comments.jpg')}}">
+
+
+	</div>
+</div>

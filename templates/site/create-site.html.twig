@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+
+	<div class="row pt-2">
+
+		<div class="container pt-2">
+		    <h1>{{title}}</h1>
+		</div>	
+
+		<div class="container">
+		  <div class="row">
+		    <form action="" method="POST" class="col s12">
+		      <div class="row">
+		      	
+		        <div class="input-field col s12 m6">
+		          <input name="name" id="name" type="text" class="" required value="{{site.name}}">
+		          <label for="name">Name</label>
+		        </div>
+		      	
+		        <div class="input-field col s12 m6">
+		          <input name="meta_title" id="meta_title" type="text" class=""  maxlength="60" required value="{{site.metaTitle}}">
+		          <label for="meta_title">Meta Title</label>
+		        </div>
+		      	
+
+				<div class="input-field col s12">
+				    <textarea name="meta_description" id="meta_description" class="materialize-textarea" maxlength="150" required>{{site.metaDescription}}</textarea>
+				    <label for="meta_description">Meta Description</label>
+				</div>
+		      	
+		        <div class="input-field col s12 m6">
+		          <input name="email" id="email" type="text" class="" value="{{site.email}}" required>
+		          <label for="email">E-mail</label>
+		        </div>
+		      	
+		        <div class="input-field col s12 m6">
+		          <input name="apikey" id="apikey" type="text" class=""  value="{{site.apikey}}" >
+		          <label id="apikeylabel" for="apikey">Apikey</label>
+		        </div>
+
+				<script>
+					/* Función destinada a generar una apikey aleatoria.*/
+
+					function createApikey() {
+					   var result           = '';
+					   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+					   var charactersLength = characters.length;
+					   for ( var i = 0; i < 24; i++ ) {
+					      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+					   }
+					   return result;
+					}
+
+					$(document).ready(function(){
+
+						if ($('#apikey').val().length == 0 ) {
+							$('#apikey').val(createApikey());
+							$('#apikeylabel').addClass('active');						
+						}
+					});
+
+
+					
+
+				</script>
+
+		        <div class="input-field col s12 m6">
+		          <input name="google_analytics_id" id="google_analytics_id" type="text" class="" required  value="{{site.googleAnalyticsId}}">
+		          <label for="google_analytics_id">Google Analytics ID</label>
+		        </div>
+
+		        <div class="input-field col s12 m6">
+		          <input name="domain" id="domain" type="text" class="" required  value="{{site.domain}}">
+		          <label for="domain">Domain</label>
+		        </div>
+
+		        <div class="input-field col s12 ">
+		          <input type="submit" value="{{action}}" class="btn right" required>
+		        </div>
+		      	
+		      </div>
+
+
+		      
+		    </form>
+		  </div>
+		</div>
+
+	</div>
+	
+{% endblock %}

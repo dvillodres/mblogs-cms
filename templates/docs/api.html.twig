@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Docs{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="container">
+			<h5>MBlogs CMS API Docs:</h5>
+				<p>At MBlogs CMS we work hard to offer the greatest ease of use of the application and try to make it reach as many users as possible. We have created a global solution to manage different websites from a single administration panel.</p><p> We also offer two <a class="bold teal-text" href="{{path('docs')}}">free templates</a> with which you can set up your sites in just a few clicks, but if in addition to being a webmaster you are a programmer and want to design your own clients, you have multiple endpoints at your disposal to make integration easy and intuitive. Of course if you need a custom development based on MBlogs CMS do not hesitate to contact us at info@danielvillodres.com and we will be happy to find the right solution for your project. Here we will explain how to use the php library ApiConsumer to create an application quickly.</p>
+			  <div class="row">
+			      <ul id="" class="tabs">
+				    <li class="tab col s3 "><a href="#get-started">Get Started</a></li>
+				    <li class="tab col s3 "><a class="" href="#functions">Functions</a></li>
+				  </ul>
+				  <div id="get-started" class="col s12 ">
+						{% include 'docs/tabs/get-started-tab.html.twig' %}
+				  </div>
+
+				  <div id="functions" class="col s12">
+						{% include 'docs/tabs/functions.html.twig' %}
+				  </div>
+        
+
+
+			  </div>
+        
+		</div>
+
+	</div>
+	
+
+
+{% endblock %}
+{% block javascripts %}
+	<script>
+
+
+		  // Or with jQuery
+
+		  $(document).ready(function(){
+		    $('.tabs').tabs();
+		    $('.materialboxed').materialbox();
+		  });
+	</script>
+{% endblock %}

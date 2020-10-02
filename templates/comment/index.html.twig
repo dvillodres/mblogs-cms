@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comments administrator{% endblock %}
+
+{% block body %}
+	<div class="row pt-2">
+	
+		<div class="container">
+
+		<h4>Admin Comments</h4>
+
+			<div class="col s12">
+		      <table class="highlight  responsive-table">
+		        <thead>
+		          <tr>
+		              <th>#</th>
+		              <th>Comment</th>
+		              <th>User</th>
+		              <th>Post/Site</th>
+		          </tr>
+		        </thead>
+
+		        <tbody>
+					{% for comment in comments %}
+					  <tr>
+			            <td width="15%">
+			            	<a href="{{path('active-comment', {'id' : comment.id})}}">
+			            	{% if comment.active %}
+								<i class="far fa-eye-slash btn red"></i>
+							{% else %}
+								<i class="far fa-eye btn green"></i>
+			            	{% endif %}
+			            	</a>
+			            </td>
+			            <td width="30%">{{comment.content | slice(0, 32)}}...</td>
+			            <td width="15%">{{comment.name}}</td>
+			            <td width="40%">{{comment.post.title}} | {{comment.post.category.site.name}}</td>
+			          </tr>
+					{% endfor %}
+		        </tbody>
+		      </table>
+			</div>
+			<div class="col s12 pt-2">
+				
+
+				{% if current_page != 1 %}
+					<a href="{{path('posts', {'page' : current_page - 1})}}"><i class="fas fa-chevron-left btn"></i></a>
+				{% endif %}
+
+				{% if current_page < max_page %}
+					<a href="{{path('posts', {'page' : current_page + 1})}}"><i class="fas fa-chevron-right btn"></i></a> 
+				{% endif %}
+				<p class="right">{{current_page}}</p>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}

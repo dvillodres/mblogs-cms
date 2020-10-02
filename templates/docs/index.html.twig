@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Docs{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="container">
+			<h5>Free templates and API consumer library:</h5>
+			  <div class="row">
+			  	<div class="col s12 m4">
+			      <div class="card large">
+			        <div class="card-image">
+			          <img src="{{asset('assets/templates/img/template-1.jpg')}}">
+			          <span class="card-title">Template 1</span>
+			        </div>
+			        <div class="card-content">
+			          <p>I am a very simple bootstrap based template. I have implemented a class that connects to the api.
+			          I am convenient because I require little effort to use effectively.</p>
+			          <small class="red-text">*This template do not feature comments support</small>
+			        </div>
+			        <div class="card-action">
+			          <a class="teal-text" href="{{asset('assets/templates/templates/template-1.zip')}}">Download</a>
+			        </div>
+			      </div>
+			    </div>	
+
+			    <div class="col s12 m4">
+			      <div class="card large">
+			        <div class="card-image">
+			          <img src="{{asset('assets/templates/img/template-2.jpg')}}">
+			          <span class="card-title">Template 2</span>
+			        </div>
+			        <div class="card-content">
+			          <p>I am a very simple  bootstrap based template too. I have implemented a class that connects to the api.
+			          I am convenient because I require little effort to use effectively.</p>
+			          <small class="red-text">*This template do not feature comments support</small>
+			        </div>
+			        <div class="card-action">
+			          <a class="teal-text" href="{{asset('assets/templates/templates/template-2.zip')}}">Download</a>
+			        </div>
+			      </div>
+			    </div>
+				<div class="col s12 m4">
+			      <div class="card large">
+			        <div class="card-image">
+			          <img src="{{asset('assets/templates/img/api.jpg')}}">
+			          <span class="card-title">API php library</span>
+			        </div>
+			        <div class="card-content">
+			          <p>I am a simple library to connect to the API of the application. After a few settings I'll be working properly.</p>
+			        </div>
+			        <div class="card-action">
+			          <a class="teal-text" href="{{asset('assets/templates/templates/api-library.zip')}}">Download</a>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+		</div>
+
+	</div>
+
+
+<div class="row">
+		<div class="container">
+			<h5>MBlogs CMS API Docs:</h5>
+				<p>At MBlogs CMS we work hard to offer the greatest ease of use of the application and try to make it reach as many users as possible. We have created a global solution to manage different websites from a single administration panel.</p><p> We also offer two <a class="bold teal-text" href="{{path('docs')}}">free templates</a> with which you can set up your sites in just a few clicks, but if in addition to being a webmaster you are a programmer and want to design your own clients, you have multiple endpoints at your disposal to make integration easy and intuitive. Of course if you need a custom development based on MBlogs CMS do not hesitate to contact us at info@danielvillodres.com and we will be happy to find the right solution for your project. Here we will explain how to use the php library ApiConsumer to create an application quickly.</p>
+			  <div class="row">
+			      <ul id="" class="tabs ">
+				    <li class="tab col s3 "><a class="teal-text" href="#get-started">Get Started</a></li>
+				    <li class="tab col s3 "><a class="teal-text" href="#functions">PHP Library</a></li>
+				    <li class="tab col s3 "><a class="teal-text" href="#endpoints">Endpoints</a></li>
+				    <li class="tab col s3 "><a class="teal-text" href="#templates">Templates</a></li>
+				  </ul>
+				  <div id="get-started" class="col s12 ">
+						{% include 'docs/tabs/get-started-tab.html.twig' %}
+				  </div>
+
+				  <div id="functions" class="col s12">
+						{% include 'docs/tabs/functions.html.twig' %}
+				  </div>
+        
+				  <div id="endpoints" class="col s12">
+						{% include 'docs/tabs/endpoints.html.twig' %}
+				  </div>
+        
+				  <div id="templates" class="col s12">
+						{% include 'docs/tabs/templates.html.twig' %}
+				  </div>
+        
+
+
+			  </div>
+        
+		</div>
+
+	</div>
+	
+
+
+{% endblock %}
+{% block javascripts %}
+	<script>
+
+
+		  // Or with jQuery
+
+		  $(document).ready(function(){
+		    $('.tabs').tabs();
+		    $('.materialboxed').materialbox();
+		  });
+	</script>
+{% endblock %}

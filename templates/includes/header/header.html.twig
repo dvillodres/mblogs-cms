@@ -1,0 +1,16 @@
+<header>
+	<nav  style="">
+		<div id="main-menu" class="nav-wrapper teal" style="padding-left:10px;background-image: url({{asset('assets/img/bg/floating-cogs.svg')}})">
+		<a href="" class="brand-logo">MBlogs CMS</a>
+		<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+
+			<ul class="right hide-on-med-and-down">
+				{% include 'includes/header/_menu-options.html.twig'%}
+			</ul>
+		</div>
+	</nav>
+
+	<ul class="sidenav" id="mobile-demo">
+		{% include 'includes/header/_menu-options.html.twig'%}
+	</ul>
+</header>

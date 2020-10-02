@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts Admin{% endblock %}
+
+{% block body %}
+
+	<div class="row pt-2">
+	
+		<div class="container">
+			{% if form.image.uploadIniSizeErrorMessage is defined %}
+				{{form.image.uploadIniSizeErrorMessage}}
+			{% endif %}
+			<div class="col s12">
+				<p>{{title}}</p>
+				{{ form_start(form)}}
+					<div class="input-form">
+			    	    
+
+		    		</div>
+		    		    <div class="file-field input-field">
+					      <div class="btn">
+					        <span>File</span>
+					        {{ form_widget(form.image, {'attr': {'data-max-size': '2000'}})}}
+					      </div>
+					      <div class="file-path-wrapper">
+					        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+					      </div>
+					    </div>
+
+		    	    <small id="too_large" class="red-text"></small>
+		    	    {{ form_widget(form.save, {'attr': {'class':'btn right mx-2'}})}}
+
+		    	    {% if post.image != "" %}
+		    	    	<a class="btn right mx-2" href="{{path('posts')}}">Keep Current</a>
+		    	    {% endif %}
+		        {{ form_end(form)}}		      
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+$('#form_image').bind('change', function() {
+
+  //this.files[0].size gets the size of your file.
+  if (this.files[0].size > 2000000) {
+  	$('#form_save').addClass('disabled');
+  	$('#too_large').text('The image size is too large. Max size 2Mb.');
+  }else{
+  	$('#form_save').removeClass('disabled');
+  	$('#too_large').text('');  }
+  
+
+});
+	</script>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User administrator{% endblock %}
+
+{% block body %}
+	
+	
+	<div  class="container pt-2">
+		
+		<h4>Admin User</h4>
+		<p>Change User Password</p>
+		<small id="message" class="red-text hidden">The passwords aren't equals.</small>
+		<div>
+			{% if password_changed is defined %}
+				<small id="" class="green-text">{{password_changed}}</small>
+			{% endif %}
+		</div>
+		<form action="" method="POST">
+			<div class="row">
+
+
+		        <div class="input-field col s12 m6">
+		          <input id="newpassword" name="newpassword" type="password" class="" required>
+		          <label for="newpassword">New Password</label>
+		        </div>
+
+		        <div class="input-field col s12 m6">
+		          <input id="confirmpassword" name="confirmpassword" type="password" class="" required>
+		          <label for="confirmpassword">Confirm Password</label>
+		        </div>
+
+		        <input id="submit" class="btn right disabled" type="submit" value="Change">
+			</div>
+		</form>
+
+	</div>
+	
+	<script>				
+
+		$('#newpassword').keyup(function(){
+			if ($('#newpassword').val() == $('#confirmpassword').val()) {
+				$('#submit').removeClass('disabled');
+				$('#message').addClass('hidden');
+			} else {
+				$('#submit').addClass('disabled');
+				$('#message').removeClass('hidden');
+			}
+		});
+
+		$('#confirmpassword').keyup(function(){
+			if ($('#newpassword').val() == $('#confirmpassword').val()) {
+				$('#submit').removeClass('disabled');
+				$('#message').addClass('hidden');
+			} else {
+				$('#submit').addClass('disabled');
+				$('#message').removeClass('hidden');
+
+			}
+		});
+	</script>
+{% endblock %}

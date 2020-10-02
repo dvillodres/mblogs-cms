@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category administrator{% endblock %}
+
+{% block body %}
+
+	<div class="row pt-2">
+		<div class="container">
+			
+			<h4>New Category</h4>
+			<div class="col s12">
+				{% if message is defined %}
+					<p class="red-text">{{message}}</p>
+				{% endif %}
+				<form action="{{path('new-category')}}" method="POST">
+
+			        <div class="input-field col s12 m6">
+			          <input value="" name="name" id="name" type="text" class="" required>
+			          <label for="name">Category Name</label>
+			        </div>
+
+			        <div class="input-field col s12 m6">
+			          <input value="" id="slug" name="slug" type="text" class="" required>
+			          <label for="slug">Category Slug</label>
+			        </div>
+
+
+			        <div class="input-field col s12 m6">
+			          <input value="" id="metatitle" name="metatitle" type="text" class="" required>
+			          <label for="metatitle">Meta Title</label>
+			        </div>
+
+
+			        <div class="input-field col s12 m6">
+			          <input value="" id="metadescription" name="metadescription" type="text" class="" required>
+			          <label for="metadescription">Meta Description</label>
+			        </div>
+
+					<div class="input-field col s12 ">
+					    <select id="site" name="site" required>
+					      <option value="" disabled selected></option>
+							{% for site in sites %}
+	   						    <option value="{{site.id}}">{{site.name}}</option>
+							{% endfor %}
+					    </select>
+						<label for="site">Choose Site</label>
+					</div>
+					
+					<button class="btn right" type="submit">Create</button>
+			    </form>
+			</div>
+
+
+			<h4>Admin Categories</h4>
+
+			<div class="col s12">
+		      <table class="highlight  responsive-table mb-2">
+		        <thead>
+		          <tr>
+		              <th>#</th>
+   		              <th>Name</th>
+		          </tr>
+		        </thead>
+
+		        <tbody>
+					{% for category in categories %}
+					  <tr>
+			            <td width="30%">
+			            	<a href="{{path('update-category', {'slug' : category.slug})}}">
+			            		<i class="fas fa-edit btn"></i>
+			            	</a>
+			            	<a href="{{path('active-category', {'id' : category.id})}}">
+			            	{% if category.active == 1 %}
+								<i class="far fa-eye-slash btn red"></i>
+							{% else %}
+								<i class="far fa-eye btn green darken-2"></i>
+			            	{% endif %}
+			            	</a>
+			            </td>
+   			            <td width="70%">{{category.name}} - {{category.site.name}}</td>
+			          </tr>
+					{% endfor %}
+		        </tbody>
+		      </table>
+
+				
+
+				{% if current_page != 1 %}
+					<a href="{{path('categories', {'page' : current_page - 1})}}"><i class="fas fa-chevron-left btn"></i></a>
+				{% endif %}
+
+				{% if current_page < max_page %}
+					<a href="{{path('categories', {'page' : current_page + 1})}}"><i class="fas fa-chevron-right btn"></i></a> 
+				{% endif %}
+				<p class="right">{{current_page}}</p>
+			</div>
+
+		</div>
+
+
+{% endblock %}

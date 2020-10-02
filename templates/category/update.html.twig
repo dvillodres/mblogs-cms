@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category update{% endblock %}
+
+{% block body %}
+
+	<div class="row pt-2">
+		<div class="container">
+			
+			<h4>Update Category</h4>
+			<div class="col s12">
+				<form action="{{path('update-category', {'slug' : category.slug})}}" method="POST">
+
+			        <div class="input-field col s12 m6">
+			          <input value="{{category.name}}" name="name" id="name" type="text" class="" required>
+			          <label for="name">Category Name</label>
+			        </div>
+
+			        <div class="input-field col s12 m6">
+			          <input value="{{category.slug}}" id="slug" name="slug" type="text" class="" required>
+			          <label for="slug">Category Slug</label>
+			        </div>
+
+
+			        <div class="input-field col s12 m6">
+			          <input value="{{category.metaTitle}}" id="metatitle" name="metatitle" type="text" class="" required>
+			          <label for="metatitle">Meta Title</label>
+			        </div>
+
+
+			        <div class="input-field col s12 m6">
+			          <input value="{{category.metaDescription}}" id="metadescription" name="metadescription" type="text" class="" required>
+			          <label for="metadescription">Meta Description</label>
+			        </div>
+
+					<div class="input-field col s12 ">
+					    <select id="site" name="site" required>
+							{% for site in sites %}
+								{% if site.name is same as(category.site.name) %}
+	   						    	<option value="{{site.id}}" selected>{{site.name}}</option>
+								{% else %}
+	   						    	<option value="{{site.id}}">{{site.name}}</option>
+								{% endif %}
+
+							{% endfor %}
+					    </select>
+						<label for="site">Choose Site</label>
+					</div>
+					
+					<button class="btn right" type="submit">Update</button>
+			    </form>
+			</div>
+		</div>
+
+
+{% endblock %}
